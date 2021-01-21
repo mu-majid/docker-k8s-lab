@@ -36,6 +36,10 @@
 ## Important Commands: 
 
   - `docker run <image-name>`: used to create and run a Container from an Image.
+    1. override default command/startup: `docker run <image-name> **command**`, ex: `docker run <image-name> bash`.
+
+  - `docker ps`: list all running containers on the PC.
+    1. `docker ps --all`: list all containers whether running ot shut down.
 
 
 

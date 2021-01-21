@@ -58,6 +58,12 @@
 
   - `docker logs <container_id>`: used to get logs that have been emitted from a container.
 
+  - `docker stop <container_id>`: stop the running docker container by sending `SIGTERM` signal, that allows the process to shut down gracefully.
+  
+  - `docker kill <container_id>`: kill the running docker container by sending `SEGKILL` signal, that **does not** allow the process to shut down gracefully.
+
+  - `docker exec -it <cont_id> <cmd>`: run another command (cmd) inside an already running container. the `it` flag means: `i` means attaching our terminal to the container so the container's process running the command `cmd` stdin/stdout/stderr channel is attached to our terminal. `t` means formatting the text typed or output to screen
+
 
 
 

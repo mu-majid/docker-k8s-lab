@@ -2,6 +2,12 @@
 
   * Complete guide to Docker and kubernestes, with CI+CD Workflows,  AWS Deployment, and  Kubernetes in Production.
 
+## Brief Introduction:
+
+  **Local Tools**
+  - Docker CLI is a piece of software that we always interact with from our terminal.
+  - Docker Server(Daemon) is another software that the CLI passes commands we write to, and this server tries to find for example an image to run a container from it, if the image is not found locally, it then request it from the connected registries.
+  - Docker Hub is remote registry that has images (public/private).
 
 ## What is a container?
 
@@ -27,7 +33,9 @@
   - And to create a running container, we need what is called an image, which is a file system snapshot and a startup command. So when we issue `docker run` command, what happens in nutshell, is that the snapshot get copied from the image to isolated (namespaced) portion of our hard drive, and allocate some limited resources like RAM, Network ..., then run the startup command to spawn a process that is only allowed to access that isolated segment of our hard drive.
   ![image-container](./pics/image-container.png)
 
-  
+## Important Commands: 
+
+  - `docker run <image-name>`: used to create and run a Container from an Image.
 
 
 

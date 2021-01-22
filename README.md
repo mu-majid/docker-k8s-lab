@@ -62,8 +62,21 @@
   
   - `docker kill <container_id>`: kill the running docker container by sending `SEGKILL` signal, that **does not** allow the process to shut down gracefully.
 
-  - `docker exec -it <cont_id> <cmd>`: run another command (cmd) inside an already running container. the `it` flag means: `i` means attaching our terminal to the container so the container's process running the command `cmd` stdin/stdout/stderr channel is attached to our terminal. `t` means formatting the text typed or output to screen
+  - `docker exec -it <cont_id> <cmd>`: run another command (cmd) inside an already running container. the `it` flag means: `i` means attaching our terminal to the container so the container's process running the command `cmd` stdin/stdout/stderr channel is attached to our terminal. `t` means formatting the text typed or output to screen.
+
+  - `docker build <build-context>`: used to build a reusable image from a docker file, the build context is essentially where the files used to build an image is located (normally the Dockerfile)
 
 
+## what is a base Image?
+
+  - it is the initial setup for the container to run in, more like an operating system on a computer, it gives basic file system and some commands to help us further configure the container.
+
+  **Image building process**: 
+
+  1. Download the base image (fs-snapshot + empty startup command).
+  2. take the previous image (base img in the first RUN command in this case) snapshot and copy it to an intermediate container, then run the command associated with the `RUN` statement, make changes to the running container filesystem.
+  3. After command completes running, stop the container, take a snapshot of the container's current updated filesystem, and save this image.
+  4. Repeat steps 2 & 3 for all file system changing commands.
+  5. the final `CMD` command, just copy whatever startup command to the previous image startup command and produce the final image.
 
 

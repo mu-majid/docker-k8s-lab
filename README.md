@@ -64,7 +64,7 @@
 
   - `docker exec -it <cont_id> <cmd>`: run another command (cmd) inside an already running container. the `it` flag means: `i` means attaching our terminal to the container so the container's process running the command `cmd` stdin/stdout/stderr channel is attached to our terminal. `t` means formatting the text typed or output to screen.
 
-  - `docker build <build-context>`: used to build a reusable image from a docker file, the build context is essentially where the files used to build an image is located (normally the Dockerfile)
+  - `docker build -t <image-tag> <build-context>`: used to build a reusable image from a docker file, the build context is essentially where the files used to build an image is located (normally the Dockerfile)
 
 
 ## what is a base Image?
@@ -78,5 +78,7 @@
   3. After command completes running, stop the container, take a snapshot of the container's current updated filesystem, and save this image.
   4. Repeat steps 2 & 3 for all file system changing commands.
   5. the final `CMD` command, just copy whatever startup command to the previous image startup command and produce the final image.
+
+  **Note**: when building an image docker server checks its building cache before going through the process of creating temp containers and creating intermediate images from them. And also the order of operations is what determines if the image will be found in the cache or not, because we are building layers above layers, and taking a snapshot after each layer.
 
 

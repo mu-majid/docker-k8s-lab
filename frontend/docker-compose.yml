@@ -1,0 +1,15 @@
+version: '3'
+services:
+  web:
+    stdin_open: true # create react app tool bug solved by this option
+    environment:
+      - CHOKIDAR_USEPOLLING=true # for windows issue not updating files in container
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    ports:
+      - '3000:3000'
+    volumes:
+      - /app/node_modules
+      - .:/app
+      

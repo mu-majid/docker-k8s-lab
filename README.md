@@ -46,10 +46,12 @@
   - Then the created container is `started`, by running the `startup command`.
   - If the container process stopped/exited, the container then becomes a stopped container (could be started again but the startup command cannot be changed from the the first time we ran the container.)
 
-## Important Commands: 
+## Important CLI Commands: 
 
   - `docker run <image-name>`: used to create and run a Container from an Image.
     1. override default command/startup: `docker run <image-name> **command**`, ex: `docker run <image-name> bash`.
+    2. specify port mapping so that a container is accessible from the outside: 
+    `docker run -p <port-1>:<port-2> <image-id>`, port-1 is the host port (localhost), and port-2 is the port inside the container.
 
   - `docker ps`: list all running containers on the PC.
     1. `docker ps --all`: list all containers whether running ot shut down.
@@ -81,4 +83,8 @@
 
   **Note**: when building an image docker server checks its building cache before going through the process of creating temp containers and creating intermediate images from them. And also the order of operations is what determines if the image will be found in the cache or not, because we are building layers above layers, and taking a snapshot after each layer.
 
+## Docker file commands:
 
+  - `FROM`: specify the base image from which we start adding layers of our own to it.
+  - `COPY file1 dir2`: copy files needed from our hard drive (file1: relative to build context dir in the build command) to the container's filesystem (dir2 could be the WORKDIR if the instruction is included in dockerfile or root by default).
+  - `WORKDIR`: specify the working directory that all following instructions in the docker file will be executed relative to.

@@ -91,7 +91,7 @@
 
   **Important Note**: To minimize cache busting and rebuilds, we must pay attention to dockerfile instructions order.
 
-  For example, the below docker file will cause cache invalidation for our dependencies every time we make try to make a change to our code and build the image for the changes to be reflected
+  - For example, the below docker file will cause cache invalidation for our dependencies every time we make try to make a change to our code and build the image for the changes to be reflected
 
   ```Dockerfile
     FROM image

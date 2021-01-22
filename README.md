@@ -88,3 +88,33 @@
   - `FROM`: specify the base image from which we start adding layers of our own to it.
   - `COPY file1 dir2`: copy files needed from our hard drive (file1: relative to build context dir in the build command) to the container's filesystem (dir2 could be the WORKDIR if the instruction is included in dockerfile or root by default).
   - `WORKDIR`: specify the working directory that all following instructions in the docker file will be executed relative to.
+
+  **Important Note**: To minimize cache busting and rebuilds, we must pay attention to dockerfile instructions order.
+
+  For example, the below docker file will cause cache invalidation for our dependencies every time we make try to make a change to our code and build the image for the changes to be reflected
+
+  ```Dockerfile
+    FROM image
+
+    WORKDIR dir2
+
+    COPY ./ ./ 
+
+    RUN npm install
+
+    CMD ["npm", "start"]
+  ```
+
+  - But when changed to the example below, the dependencies are now cached and docker server will only detect that we changed our code (inside ./) and will not try to install them again (remember the layers and intermediate images built after instruction are cached and used when appropriate.)
+
+  ```Dockerfile
+    FROM image
+
+    WORKDIR dir2
+
+    COPY ./package.json ./ 
+    RUN npm install
+    COPY ./ ./ 
+
+    CMD ["npm", "start"]
+  ```

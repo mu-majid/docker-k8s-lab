@@ -118,3 +118,11 @@
 
     CMD ["npm", "start"]
   ```
+
+----
+
+## What and Why is kubernetes?
+
+  * It is a system for managing containerized applications across multiple hosts. It provides basic mechanisms for deployment, maintenance, and scaling of applications.
+
+  * Gives ability to run many different containers with different images

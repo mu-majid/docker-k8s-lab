@@ -121,8 +121,24 @@
 
 ----
 
-## What and Why is kubernetes?
+## What and Why is kubernetes With some Notes?
 
   * It is a system for managing containerized applications across multiple hosts. It provides basic mechanisms for deployment, maintenance, and scaling of applications.
 
-  * Gives ability to run many different containers with different images
+  * Gives ability to run many different containers with different images.
+
+  * For databases pods , we used PVC (Persistent Volume Claim) with Persistent volumes, which are (statically provisioned or dynamically provisioned) and is actually a part of the hard drive of the host machine's HD.
+
+  * Kubernetes volumes are different from persistent volumes in that k8s volumes life span is the pods life span.
+
+  * Load balancer Service is not used recently and considered as a legacy, one of the reasons is that, it governs and allow traffic to only one set of pods (a deployment), and requires us to configure a load balancer on the cloud provider we use.
+
+  * Ingress controller is what is responsible for taking routing (ingress) config file in and spin up a deployment of `nginx` that does the actual routing.
+
+  * In case of `ingress-nginx` the controller and the routing server are the same thing.
+
+  * Ingress services internally uses `load-balancer` service type.
+
+  * Some features likes sticky sessions, would be challenging if we chose to use a normal load balancer with a normal nginx deployment instead of a an ingress deployment.
+
+  * More on [Ingress-nginx](https://www.joyfulbikeshedding.com/blog/2018-03-26-studying-the-kubernetes-ingress-system.html)

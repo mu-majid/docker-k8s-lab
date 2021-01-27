@@ -16,3 +16,9 @@ before_install:
 
 script:
   - docker run -e CI=true mumajid/reactapp-test npm test
+
+deploy:
+  provider: script
+  script: bash ./deploy.sh
+  on:
+    branch: master

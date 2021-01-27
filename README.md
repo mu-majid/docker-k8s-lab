@@ -142,3 +142,5 @@
   * Some features likes sticky sessions, would be challenging if we chose to use a normal load balancer with a normal nginx deployment instead of a an ingress deployment.
 
   * More on [Ingress-nginx](https://www.joyfulbikeshedding.com/blog/2018-03-26-studying-the-kubernetes-ingress-system.html)
+
+  * using GIT_SHA  to tag images used in k8s deployments , enable us to know exactly what version of code caused an issue and allow better debugging.

@@ -10,3 +10,9 @@ before_install:
   - gcloud config set project <google-project-name>
   - gcloud config set compute/zone <cluster-location>
   - gcloud container clusters get-credentials <cluster-name>
+
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+  - docker build -t mumajid/reactapp-test -f ./client/Dockerfile.dev ./client
+
+script:
+  - docker run -e CI=true mumajid/reactapp-test npm test

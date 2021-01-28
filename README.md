@@ -144,3 +144,16 @@
   * More on [Ingress-nginx](https://www.joyfulbikeshedding.com/blog/2018-03-26-studying-the-kubernetes-ingress-system.html)
 
   * using GIT_SHA  to tag images used in k8s deployments , enable us to know exactly what version of code caused an issue and allow better debugging.
+
+  * `Helm` is a tool that is used to manage third party tools we use inside our k8s cluster.
+
+  * Helm v2 actually is two pieces of software, a client and a Tiller server.
+
+  * For GKE to use Helm v2, we install the tool `from script` and then do a little extra configuration for the tiller server (it is essentially a pod running in our cluster that takes commands from helm client and tries to change configuration in our cluster), so this extra config is related to RBAC and limit access to our cluster (RBAC is enabled by default by the GKE).
+
+  * A little more onn RBAC: 
+    - User Accounts: Identifies a *person* administering out cluster.
+    - Service Accounts: Identifies a *pod* or *background process* administering out cluster.
+    - ClusterRoleBinding: Authorizes an account (service or user) to do a certain set of actions across the entire cluster
+    - RoleBinding: Authorizes an account to do a certain set of actions in *a single namespace*
+

@@ -157,3 +157,4 @@
     - ClusterRoleBinding: Authorizes an account (service or user) to do a certain set of actions across the entire cluster
     - RoleBinding: Authorizes an account to do a certain set of actions in *a single namespace*
 
+  TODO: read kubernetes patterns book.

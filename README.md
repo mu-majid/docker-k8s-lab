@@ -158,3 +158,4 @@
     - RoleBinding: Authorizes an account to do a certain set of actions in *a single namespace*
 
   TODO: read kubernetes patterns book.
+  

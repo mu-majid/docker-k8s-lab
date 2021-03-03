@@ -121,7 +121,9 @@
 
 ----
 
-## What and Why is kubernetes With some Notes?
+## What and Why is Kubernetes With some Notes?
+
+  * https://cloud.netapp.com/blog/kubernetes-for-developers-a-deep-dive
 
   * It is a system for managing containerized applications across multiple hosts. It provides basic mechanisms for deployment, maintenance, and scaling of applications.
 

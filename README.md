@@ -161,3 +161,5 @@
 
   TODO: read kubernetes patterns book.
   
+
+  * Using Jenkins with Kubernetes to create a CI/CD pipeline => https://www.magalix.com/blog/create-a-ci/cd-pipeline-with-kubernetes-and-jenkins

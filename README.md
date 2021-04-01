@@ -46,6 +46,10 @@
   - Then the created container is `started`, by running the `startup command`.
   - If the container process stopped/exited, the container then becomes a stopped container (could be started again but the startup command cannot be changed from the the first time we ran the container.)
 
+## Docker Volumes and Docker-Compose:
+
+  * Check the answer in this [question](https://stackoverflow.com/questions/66900871/docker-volumes-explanation), the Answer gives a good explanation.
+
 ## Important CLI Commands: 
 
   - `docker run <image-name>`: used to create and run a Container from an Image.

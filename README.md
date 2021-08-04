@@ -155,6 +155,8 @@
 
   * Helm v2 actually is two pieces of software, a client and a Tiller server.
 
+  * Installing cert-manager using helm: https://cert-manager.io/docs/installation/kubernetes/#installing-with-helm
+
   * For GKE to use Helm v2, we install the tool `from script` and then do a little extra configuration for the tiller server (it is essentially a pod running in our cluster that takes commands from helm client and tries to change configuration in our cluster), so this extra config is related to RBAC and limit access to our cluster (RBAC is enabled by default by the GKE).
 
   * A little more onn RBAC: 
